@@ -3,7 +3,6 @@ global start
 section .text
 bits 32
 start:
-
     lgdt [gdt_descriptor]
     
     mov ax, 0x10
@@ -14,7 +13,7 @@ start:
     mov fs, ax
     jmp 0x8:new_protect
 new_protect:
-    mov eax, 0x3333
+    ; mov eax, 0x3333
     ; print `OK` to screen
     mov dword [0xb8000], 0x2f4b2f4f
     mov dword [0x10000], 0x1234
